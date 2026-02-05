@@ -115,7 +115,7 @@ Fix fast/swap supports only explicitly listed pair styles (currently: lj/cut, lj
 If you use this fix in your research, please cite:
 
 > Q. Chen, L. Wang, J. Wang, J. J. Hoyt,
-> *Efficient Localized Monte Carlo Sampling for the Semi-Grand Canonical Ensemble in LAMMPS*,
+> *Accelerating Semi-Grand Canonical Monte Carlo in LAMMPS via Localized Energy-Difference Computations*,
 > Manuscript in preparation.
 
 ---
