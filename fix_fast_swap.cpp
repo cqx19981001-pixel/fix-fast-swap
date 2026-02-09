@@ -427,7 +427,7 @@ bool FixFastSwap::check_parallel_mc_feasible()
   double R_required = rcut_skin;
   if (force->pair && force->pair->manybody_flag) R_required = 2.0 * rcut_skin;
 
- // 3) Size of a single sub-subdomain after splitting the local domain into 2¡Á2¡Á2
+ // 3) Size of a single sub-subdomain after splitting the local domain into 2Â¡Ã2Â¡Ã2
   const double Lx_sub = 0.5 * (domain->subhi[0] - domain->sublo[0]);
   const double Ly_sub = 0.5 * (domain->subhi[1] - domain->sublo[1]);
   const double Lz_sub = 0.5 * (domain->subhi[2] - domain->sublo[2]);
@@ -757,7 +757,7 @@ double FixFastSwap::energy_full()
   int eflag = 1;
   int vflag = 0;
 
-  // if (modify->n_pre_force) modify->pre_force(vflag);
+  if (modify->n_pre_force) modify->pre_force(vflag);
 
   if (force->pair) force->pair->compute(eflag, vflag);
 
@@ -770,7 +770,7 @@ double FixFastSwap::energy_full()
 
   if (force->kspace) force->kspace->compute(eflag, vflag);
 
-  // if (modify->n_post_force_any) modify->post_force(vflag);
+  if (modify->n_post_force_any) modify->post_force(vflag);
 
   update->eflag_global = update->ntimestep;
 
@@ -811,4 +811,5 @@ inline double FixFastSwap::influence_radius() const
   const double skin = neighbor ? neighbor->skin : 0.0;
   return rcut + skin;
 }
+
 
